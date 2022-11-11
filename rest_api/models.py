@@ -48,3 +48,12 @@ class User(AbstractBaseUser):
 
     def __str__(self):
         return self.user_name
+
+class lecture(models.Model):
+    lecture_id = models.AutoField(primary_key=True)
+    lecture_name = models.CharField(max_length=20)
+    lecture_prof = models.CharField(max_length=20)
+    students = models.ManyToManyField(User, related_name="users", null=True)
+
+    def __str__(self):
+        return self.lecture_name
