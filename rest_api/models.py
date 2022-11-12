@@ -29,7 +29,7 @@ class Manager(BaseUserManager):
 
 
 class User(AbstractBaseUser):
-    user_primary_id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     user_id = models.CharField(max_length=30, unique=True)
     user_name = models.CharField(max_length=100)
 
