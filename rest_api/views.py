@@ -39,9 +39,7 @@ class logout(APIView):
     permission_classes = [AllowAny]
     def delete(self, request):
         try:
-            del(request.session['user'])
-            print('return')
-            return redirect('/')
+            request.session.flush()
+            return redirect('rest_api:login')
         except:
-            print('already logged out')
             return Response(status=status.HTTP_400_BAD_REQUEST)
